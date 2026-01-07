@@ -133,6 +133,6 @@ Aplikasi ini siap di-deploy ke platform PaaS seperti Render, Railway, atau Herok
 ---
 
 **Kredit**
+Dibuat untuk Proyek Machine Learning
 
-Dibuat untuk Proyek Optimasi Alur Lalu Lintas
 GAZ 2025 - *Data-driven decisions for better urban mobility.*
