@@ -31,6 +31,10 @@ except Exception as e:
 def index():
     return render_template('index.html')
 
+@app.route('/guide')
+def guide():
+    return render_template('guide.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -75,12 +79,24 @@ def predict():
         res = model.predict(input_scaled)[0]
         prediction = int(round(res))
 
-        # F. Penyesuaian Threshold (Sangat Penting)
-        # Kita turunkan batas 'Macet Total' menjadi 450 agar input Anda terdeteksi Macet
-        if prediction > 450:
+        # F. Penyesuaian Threshold & Logic Speed
+        # Jika kecepatan sangat rendah (< 10 km/h), otomatis Macet Total
+        if speed < 10:
             status = "Macet Total"
             color_class = "danger"
-        elif prediction > 300:
+            # Boost visual prediction untuk konsistensi UI
+            if prediction < 500:
+                prediction = 500
+        # Jika kecepatan rendah (< 25 km/h), minimal Padat Merayap
+        elif speed < 25:
+            status = "Padat Merayap"
+            color_class = "warning"
+            if prediction < 350:
+                prediction = 350
+        elif prediction > 400:
+            status = "Macet Total"
+            color_class = "danger"
+        elif prediction > 250:
             status = "Padat Merayap"
             color_class = "warning"
         else:

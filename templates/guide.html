@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panduan Pengisian - Smart Traffic AI</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap 5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --primary-gradient: linear-gradient(135deg, #4361ee, #3f37c9);
+        --bg-light: #f8f9fd;
+        --text-dark: #1e293b;
+      }
+
+      body {
+        background: var(--bg-light);
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: var(--text-dark);
+        min-height: 100vh;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+
+      .header-section {
+        background: var(--primary-gradient);
+        color: white;
+        padding: 60px 0;
+        border-radius: 0 0 50px 50px;
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .category-card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        background: white;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .category-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .category-header {
+        background: #f1f5f9;
+        padding: 20px;
+        border-radius: 20px 20px 0 0;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      
+      .category-icon {
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4361ee;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      }
+
+      .card-body {
+        padding: 25px;
+      }
+
+      .guide-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .guide-list li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        font-size: 0.95rem;
+        color: #64748b;
+      }
+
+      .guide-list li::before {
+        content: "\f058"; /* Check circle */
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: #22c55e;
+        margin-right: 12px;
+        margin-top: 3px;
+        font-size: 0.9rem;
+      }
+      
+      .btn-back {
+        background: white;
+        color: #4361ee;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 100px;
+        text-decoration: none;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        display: inline-block;
+        margin-top: 20px;
+        transition: all 0.3s;
+      }
+      
+      .btn-back:hover {
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+        color: #4361ee;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar sticky-top">
+      <div class="container">
+        <a class="navbar-brand text-primary" href="/">
+          <i class="fas fa-traffic-light me-2"></i>TRAFFIC<span class="text-dark">FLOW</span>
+        </a>
+        <a href="/" class="btn btn-sm btn-outline-primary rounded-pill px-4 fw-bold">
+           <i class="fas fa-home me-2"></i>Dashboard
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header-section">
+      <div class="container">
+        <h1 class="fw-extrabold display-5 mb-2">Panduan Pengisian Form</h1>
+        <p class="opacity-75 lead mb-0">Tips akurat untuk hasil prediksi terbaik</p>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mb-5">
+      <div class="row g-4 justify-content-center">
+        
+        <!-- Category 1: Waktu -->
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon"><i class="far fa-calendar-alt"></i></div>
+              Waktu & Tanggal
+            </div>
+            <div class="card-body">
+              <ul class="guide-list">
+                <li>Pilih tanggal dan jam pemantauan saat ini atau prediksi masa depan.</li>
+                <li>Sistem menggunakan format 24 jam untuk akurasi lebih baik.</li>
+                <li>Hari dalam seminggu (Senin-Minggu) otomatis terdeteksi.</li>
+                <li>Hindari memilih tahun lampau karena pola lalu lintas berubah.</li>
+                <li>Waktu peak hour biasanya pukul 07:00-09:00 dan 17:00-19:00.</li>
+              </ul>
+               <div class="mt-3">
+                   <table class="table table-sm table-borderless small mb-0">
+                       <tr>
+                           <td><span class="badge bg-success w-100">Lancar</span></td>
+                           <td>Malam Hari / Siang Bolong</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-warning text-dark w-100">Padat Merayap</span></td>
+                           <td>Jam Pulang Kerja (16:00 - 19:00)</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-danger w-100">Macet Total</span></td>
+                           <td>Jam Berangkat (06:30 - 08:30)</td>
+                       </tr>
+                   </table>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Kecepatan -->
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon"><i class="fas fa-tachometer-alt"></i></div>
+              Kecepatan Rata-rata
+            </div>
+            <div class="card-body">
+              <ul class="guide-list">
+                <li>Masukkan rata-rata kecepatan kendaraan di ruas jalan tersebut.</li>
+                <li>Satuan yang digunakan adalah kilometer per jam (km/h).</li>
+                <li>Jika macet parah, kecepatan bisa mendekati 0-10 km/h.</li>
+                <li>Kecepatan normal dalam kota berkisar 30-50 km/h.</li>
+                <li>Data ini bisa didapat dari aplikasi navigasi seperi Gmaps.</li>
+              </ul>
+               <div class="mt-3">
+                   <table class="table table-sm table-borderless small mb-0">
+                       <tr>
+                           <td><span class="badge bg-success w-100">Lancar</span></td>
+                           <td>> 50 km/h</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-warning text-dark w-100">Padat Merayap</span></td>
+                           <td>20 km/h</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-danger w-100">Macet Total</span></td>
+                           <td>5 km/h</td>
+                       </tr>
+                   </table>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Cuaca & Suhu -->
+        <div class="col-md-6 col-lg-4">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon"><i class="fas fa-cloud-sun-rain"></i></div>
+              Kondisi Lingkungan
+            </div>
+            <div class="card-body">
+              <ul class="guide-list">
+                <li>Suhu diukur dalam derajat Celcius (°C) yang presisi.</li>
+                <li>Kelembapan (Humidity) dalam persen (%), misal 80%.</li>
+                <li>Cuaca Hujan/Kabut/Berangin sangat mempengaruhi laju kendaraan.</li>
+                <li>Kelembapan tinggi biasanya terjadi saat atau setelah hujan.</li>
+                <li>Pilih kondisi cuaca dominan saat pemantauan dilakukan.</li>
+              </ul>
+               <div class="mt-3">
+                   <table class="table table-sm table-borderless small mb-0">
+                       <tr>
+                           <td><span class="badge bg-success w-100">Lancar</span></td>
+                           <td>Cerah / Berawan</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-warning text-dark w-100">Padat Merayap</span></td>
+                           <td>Gerimis / Berangin</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-danger w-100">Macet Total</span></td>
+                           <td>Hujan / Kabut</td>
+                       </tr>
+                   </table>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Volume Kendaraan -->
+        <div class="col-md-6 col-lg-6"> <!-- Agak lebar sedikit -->
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon"><i class="fas fa-car-side"></i></div>
+              Volume Kendaraan
+            </div>
+            <div class="card-body">
+              <ul class="guide-list">
+                <li>Input jumlah Mobil pribadi, Angkot, atau Taksi.</li>
+                <li>Truk mencakup kendaraan logistik besar dan bus.</li>
+                <li>Motor mencakup semua kendaraan roda dua.</li>
+                <li>Masukkan angka 0 jika tidak ada kendaraan jenis tersebut.</li>
+                <li>Proporsi kendaraan berat (Truk) sangat mempengaruhi kemacetan.</li>
+              </ul>
+               <div class="mt-3">
+                   <table class="table table-sm table-borderless small mb-0">
+                       <tr class="border-bottom">
+                           <th class="text-muted fw-normal">Kondisi</th>
+                           <th class="text-muted fw-normal">Mobil</th>
+                           <th class="text-muted fw-normal">Truk</th>
+                           <th class="text-muted fw-normal">Motor</th>
+                       </tr>
+                       <tr>
+                           <td><span class="text-success fw-bold">Lancar</span></td>
+                           <td>0 - 20</td>
+                           <td>0 - 5</td>
+                           <td>0 - 50</td>
+                       </tr>
+                       <tr>
+                           <td><span class="text-warning fw-bold">Padat Merayap</span></td>
+                           <td>100 - 300</td>
+                           <td>20 - 60</td>
+                           <td>250 - 600</td>
+                       </tr>
+                       <tr>
+                           <td><span class="text-danger fw-bold">Macet Total</span></td>
+                           <td>> 100</td>
+                           <td>> 20</td>
+                           <td>> 200</td>
+                       </tr>
+                   </table>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 5: Lalu Lintas -->
+        <div class="col-md-6 col-lg-6">
+          <div class="category-card">
+            <div class="category-header">
+              <div class="category-icon"><i class="fas fa-traffic-light"></i></div>
+              Status Lampu & Sinyal
+            </div>
+            <div class="card-body">
+              <ul class="guide-list">
+                <li>Pilih status lampu lalu lintas terdekat jika relevan.</li>
+                <li>Red (Merah) artinya antrean sedang berhenti total.</li>
+                <li>Green (Hijau) artinya arus berjalan, namun bisa padat.</li>
+                <li>Yellow (Kuning) transisi yang sering menyebabkan pelambatan.</li>
+                <li>Status ini membantu model memahami flow sesaat.</li>
+              </ul>
+               <div class="mt-3">
+                   <table class="table table-sm table-borderless small mb-0">
+                       <tr>
+                           <td><span class="badge bg-success w-100">Lancar</span></td>
+                           <td>Hijau (Green) - Arus Jalan</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-warning text-dark w-100">Padat Merayap</span></td>
+                           <td>Kuning (Yellow) - Tersendat</td>
+                       </tr>
+                       <tr>
+                           <td><span class="badge bg-danger w-100">Macet Total</span></td>
+                           <td>Merah (Red) - Berhenti</td>
+                       </tr>
+                   </table>
+               </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Complete Scenarios Section -->
+      <div class="mt-5 pt-4">
+          <div class="text-center mb-5">
+              <h2 class="fw-bold">Contoh Skenario Lengkap</h2>
+              <p class="text-muted">Simulasi gabungan yang menghasilkan prediksi spesifik</p>
+          </div>
+
+          <div class="row g-4">
+              <!-- Scenario Lancar -->
+              <div class="col-lg-4">
+                  <div class="card h-100 border-0 shadow-sm" style="background: #ecfdf5; border: 1px solid #d1fae5 !important;">
+                      <div class="card-body p-4">
+                          <div class="d-flex align-items-center mb-3">
+                              <span class="badge bg-success rounded-pill px-3 py-2">LANCAR</span>
+                          </div>
+                          <ul class="list-unstyled small mb-0 text-dark opacity-15">
+                              <li class="mb-2"><i class="far fa-clock me-2 text-success"></i><strong>Waktu:</strong> 13:00 (Siang)</li>
+                              <li class="mb-2"><i class="fas fa-tachometer-alt me-2 text-success"></i><strong>Kecepatan:</strong> 55 km/h</li>
+                              <li class="mb-2"><i class="fas fa-thermometer-half me-2 text-success"></i><strong>Suhu:</strong> 31°C</li>
+                              <li class="mb-2"><i class="fas fa-tint me-2 text-success"></i><strong>Lembap:</strong> 60%</li>
+                              <li class="mb-2"><i class="fas fa-car me-2 text-success"></i><strong>Kendaraan:</strong> 
+                                  <div class="ms-4 mt-1">Mobil: 15, Truk: 2, Motor: 40</div>
+                              </li>
+                              <li class="mb-2"><i class="fas fa-cloud-sun me-2 text-success"></i><strong>Cuaca:</strong> Cerah</li>
+                              <li><i class="fas fa-traffic-light me-2 text-success"></i><strong>Sinyal:</strong> Hijau</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Scenario Padat Merayap -->
+              <div class="col-lg-4">
+                  <div class="card h-100 border-0 shadow-sm" style="background: #fefce8; border: 1px solid #fef08a !important;">
+                      <div class="card-body p-4">
+                          <div class="d-flex align-items-center mb-3">
+                              <span class="badge bg-warning text-dark rounded-pill px-3 py-2">PADAT MERAYAP</span>
+                          </div>
+                          <ul class="list-unstyled small mb-0 text-dark">
+                              <li class="mb-2"><i class="far fa-clock me-2 text-warning"></i><strong>Waktu:</strong> 17:30 (Sore)</li>
+                              <li class="mb-2"><i class="fas fa-tachometer-alt me-2 text-warning"></i><strong>Kecepatan:</strong> 20 km/h</li>
+                              <li class="mb-2"><i class="fas fa-thermometer-half me-2 text-warning"></i><strong>Suhu:</strong> 28°C</li>
+                              <li class="mb-2"><i class="fas fa-tint me-2 text-warning"></i><strong>Lembap:</strong> 75%</li>
+                              <li class="mb-2"><i class="fas fa-car me-2 text-warning"></i><strong>Kendaraan:</strong> 
+                                  <div class="ms-4 mt-1">Mobil: 250, Truk: 50, Motor: 500</div>
+                              </li>
+                              <li class="mb-2"><i class="fas fa-cloud me-2 text-warning"></i><strong>Cuaca:</strong> Berangin</li>
+                              <li><i class="fas fa-traffic-light me-2 text-warning"></i><strong>Sinyal:</strong> Kuning</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Scenario Macet Total -->
+              <div class="col-lg-4">
+                  <div class="card h-100 border-0 shadow-sm" style="background: #fef2f2; border: 1px solid #fee2e2 !important;">
+                      <div class="card-body p-4">
+                          <div class="d-flex align-items-center mb-3">
+                              <span class="badge bg-danger rounded-pill px-3 py-2">MACET TOTAL</span>
+                          </div>
+                          <ul class="list-unstyled small mb-0 text-dark">
+                              <li class="mb-2"><i class="far fa-clock me-2 text-danger"></i><strong>Waktu:</strong> 07:15 (Pagi)</li>
+                              <li class="mb-2"><i class="fas fa-tachometer-alt me-2 text-danger"></i><strong>Kecepatan:</strong> 5 km/h</li>
+                              <li class="mb-2"><i class="fas fa-thermometer-half me-2 text-danger"></i><strong>Suhu:</strong> 26°C</li>
+                              <li class="mb-2"><i class="fas fa-tint me-2 text-danger"></i><strong>Lembap:</strong> 90%</li>
+                              <li class="mb-2"><i class="fas fa-car me-2 text-danger"></i><strong>Kendaraan:</strong> 
+                                  <div class="ms-4 mt-1">Mobil: 120, Truk: 25, Motor: 200</div>
+                              </li>
+                              <li class="mb-2"><i class="fas fa-cloud-showers-heavy me-2 text-danger"></i><strong>Cuaca:</strong> Hujan</li>
+                              <li><i class="fas fa-traffic-light me-2 text-danger"></i><strong>Sinyal:</strong> Merah</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="/" class="btn-back">
+            <i class="fas fa-arrow-left me-2"></i>Kembali ke Form Evaluasi
+        </a>
+      </div>
+
+    </div>
+  </body>
+</html>
