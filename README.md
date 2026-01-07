@@ -1,185 +1,138 @@
-# Smart Traffic Flow Prediction AI
+# 🚦 TrafficFlow: Optimasi Transportasi Perkotaan dengan AI
 
-A Flask-based web application that predicts traffic congestion levels using Machine Learning. This project helps users evaluate traffic conditions based on real-time factors like time, weather, vehicle volume, and signal status.
+### Sistem Analisis Beban Lalu Lintas & Prediksi Kepadatan Real-Time
 
-## 🚀 Features
+**TrafficFlow** adalah aplikasi berbasis web yang dirancang untuk memprediksi tingkat kepadatan lalu lintas secara real-time menggunakan Machine Learning. Proyek ini bertujuan untuk mendukung mobilitas perkotaan yang berkelanjutan (SDG 11) dengan memberikan wawasan berbasis data mengenai kondisi jalan raya.
 
--   **Real-time Prediction**: Inputs flow through a trained ML model to predict traffic volume and status (Lancar, Padat Merayap, Macet Total).
--   **Interactive Guide**: A dedicated "Panduan Pengisian" page with detailed tips and specific example scenarios to help users input accurate data.
--   **User-Friendly UI**: Modern interface built with Bootstrap 5 and Google Fonts (Plus Jakarta Sans).
--   **Scenario Simulation**: Visual cards in the guide showing exact inputs for different traffic conditions.
+Dikembangkan sebagai bagian dari proyek penelitian (Politeknik Caltex Riau), sistem ini mengevaluasi faktor-faktor seperti waktu, cuaca, volume kendaraan, dan status lampu lalu lintas untuk menentukan kelancaran arus.
 
-## 🛠️ Tech Stack
+## 🚀 Fitur Utama
 
--   **Backend**: Python, Flask
--   **Frontend**: HTML5, Bootstrap 5.3, CSS3, FontAwesome
--   **Machine Learning**: Scikit-learn (Random Forest/Linear Regression context), Joblib, Pandas, NumPy
+-   **Prediksi Real-Time**: Memproses input pengguna melalui model Machine Learning terlatih untuk memprediksi volume dan status lalu lintas.
+-   **Logika Klasifikasi Cerdas**: Memberikan status visual yang mudah dipahami:
+    -   🟢 **Lancar**: Beban rendah, arus normal.
+    -   🟡 **Padat Merayap**: Kendaraan bergerak perlahan namun stabil.
+    -   🔴 **Macet Total**: Beban sangat tinggi, arus hampir berhenti.
+-   **Panduan Interaktif**: Halaman khusus "Panduan Pengisian" dengan tips mendetail untuk membantu pengguna memasukkan data yang akurat.
+-   **Simulasi Skenario**: Kartu visual yang menampilkan contoh input (Skenario Macet, Lancar, dll) untuk pengujian model.
+-   **Antarmuka Modern**: Dibangun dengan Bootstrap 5 dan Google Fonts (Plus Jakarta Sans) untuk pengalaman pengguna yang responsif.
 
-## 📂 Project Structure
+## 🛠️ Teknologi yang Digunakan (Tech Stack)
 
-```
+### Backend & Machine Learning
+-   **Python**: Bahasa pemrograman utama.
+-   **Flask**: Framework web ringan untuk API dan routing.
+-   **Scikit-learn**: Implementasi algoritma Machine Learning (Random Forest).
+-   **Pandas & NumPy**: Manipulasi dan analisis data numerik.
+-   **Joblib**: Serialisasi model (menyimpan/memuat model .pkl).
+
+### Frontend
+-   **HTML5 & CSS3**: Struktur dan gaya halaman.
+-   **Bootstrap 5.3**: Framework CSS untuk desain responsif.
+-   **FontAwesome**: Ikon antarmuka.
+
+## ⚙️ Alur Pengembangan AI (Machine Learning Pipeline)
+
+Sistem kecerdasan buatan ini dibangun melalui beberapa tahapan ketat:
+
+1.  **Analisis & Pembersihan Data**
+    -   Pengolahan dataset Smart Traffic.
+    -   Penanganan missing values.
+    -   Ekstraksi fitur waktu (jam, hari dalam seminggu).
+
+2.  **Feature Engineering**
+    -   **One-Hot Encoding**: Mengubah data kategori (Cuaca, Status Lampu) menjadi format numerik.
+    -   **StandardScaler**: Normalisasi fitur numerik (Jumlah kendaraan, Suhu, Kecepatan) agar skala data seragam.
+
+3.  **Seleksi Model**
+    -   Kami membandingkan beberapa algoritma: Decision Tree, Random Forest, dan K-Nearest Neighbors (KNN).
+
+4.  **Final Model: Random Forest Regressor**
+    -   Dipilih karena:
+        -   Memiliki R² Score tertinggi.
+        -   Stabil terhadap overfitting.
+        -   Performa konsisten saat diuji dengan data baru.
+
+## 📂 Struktur Proyek
+
+Berikut adalah susunan folder dan file dalam proyek ini:
+
+```bash
 Traffic_App/
-├── app.py                  # Main Flask application
-├── requirements.txt        # Python dependencies
-├── Procfile                # Deployment instruction (for Heroku/Render)
-├── traffic_model_final.pkl # Trained ML Model
-├── scaler.pkl              # Data Scaler
-├── templates/
-│   ├── index.html          # Main Dashboard/Form
-│   └── guide.html          # Guide/Manual Page
-└── README.md               # Project Documentation
+├── app.py                  # Aplikasi utama Flask (Backend & Route)
+├── requirements.txt        # Daftar dependensi Python
+├── Procfile                # Instruksi deployment (untuk Heroku/Render)
+├── traffic_model_final.pkl # Model Random Forest yang sudah dilatih
+├── scaler.pkl              # Scaler untuk normalisasi data input
+├── templates/              # Folder file HTML
+│   ├── index.html          # Dashboard Utama / Form Prediksi
+│   └── guide.html          # Halaman Panduan & Skenario
+└── README.md               # Dokumentasi Proyek
 ```
 
-## ⚙️ Installation & Usage
+## 💻 Instalasi dan Cara Penggunaan
 
-1.  **Clone the Repository**
-    ```bash
-    git clone https://github.com/yourusername/Traffic_App.git
-    cd Traffic_App
-    ```
-
-2.  **Create Virtual Environment (Optional but Recommended)**
-    ```bash
-    python -m venv venv
-    # Windows
-    venv\Scripts\activate
-    # Mac/Linux
-    source venv/bin/activate
-    ```
-
-3.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4.  **Run the Application**
-    ```bash
-    python app.py
-    ```
-
-5.  **Access the App**
-    Open your browser and go to `http://127.0.0.1:5001/`
-
-## 📖 How to Use the Guide
-
-1.  Click the **"Panduan"** button in the top navigation bar.
-2.  Review the 5 categories (Time, Speed, Weather, Volume, Signal).
-3.  Scroll to the bottom to see **"Contoh Skenario Lengkap"**.
-4.  Use these example values to test the model (e.g., input the "Macet Total" scenario to see the Red result).
-
-## ☁️ Deployment
-
-To deploy this app to platforms like **Render**, **Railway**, or **Heroku**:
-
-1.  Ensure `requirements.txt` and `Procfile` are present (included).
-2.  Push this code to your GitHub repository.
-3.  Connect your repo to the hosting service.
-4.  The service will automatically detect the Python app and run it using the command in `Procfile`.
-
----
-*Created for Traffic Flow Optimization Project*
-
-# 🚦 TrafficFlow: Optimasi Transportasi Perkotaan
-### Sistem Analisis Beban Lalu Lintas & Prediksi Kepadatan Real-Time Berbasis Machine Learning
-
-TrafficFlow adalah aplikasi cerdas yang dirancang untuk menganalisis beban lalu lintas dan memprediksi tingkat kepadatan secara real-time menggunakan Machine Learning. Sistem ini mendukung upaya mobilitas perkotaan berkelanjutan (SDG 11) dan dikembangkan sebagai bagian dari proyek penelitian di Politeknik Caltex Riau.
-
----
-
-## ⚙️ Alur Pengembangan (Technical Pipeline)
-
-### 1. Analisis & Pembersihan Data
-- Mengolah dataset *Smart Traffic*
-- Menangani missing values
-- Ekstraksi fitur waktu (hour, day_of_week)
-
-### 2. Feature Engineering
-- **One-Hot Encoding** untuk kategori cuaca & status lampu lalu lintas  
-- **StandardScaler** untuk normalisasi fitur numerik (jumlah kendaraan, suhu, kecepatan)
-
-### 3. Seleksi Model
-Model yang dibandingkan:
-- Decision Tree  
-- Random Forest  
-- K-Nearest Neighbors (KNN)
-
-### 4. Final Model
-Model terbaik: **Random Forest Regressor**
-
-Dipilih karena:
-- R² Score tertinggi  
-- Stabil terhadap overfitting  
-- Performa konsisten ketika diuji pada data baru
-
-### 5. Web Deployment
-- Backend Flask  
-- Integrasi model (.pkl)  
-- Frontend dashboard menggunakan Bootstrap 5  
-
----
-
-## 🚦 Logika Klasifikasi Kepadatan
-
-TrafficFlow menghitung **Traffic Load Score** untuk menentukan status kondisi lalu lintas:
-
-| Status | Deskripsi |
-|--------|-----------|
-| 🟢 **Lancar** | Beban rendah, arus normal |
-| 🟡 **Padat Merayap** | Kendaraan bergerak perlahan tetapi stabil |
-| 🔴 **Macet Total** | Beban sangat tinggi, kecepatan hampir berhenti |
-
----
-
-## 💻 Instalasi dan Menjalankan Aplikasi
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi di komputer lokal Anda:
 
 ### 1. Clone Repository
+Unduh kode sumber proyek ini:
 ```bash
-git clone https://github.com/GhaswulFikriFadhillah/Trafficflow.git
-cd Trafficflow
+git clone https://github.com/username-anda/Traffic_App.git
+cd Traffic_App
 ```
-### 2. Membuat Virtual Environment
+
+### 2. Buat Virtual Environment (Disarankan)
+Isolasi dependensi proyek agar tidak bentrok dengan sistem utama.
+
+**Windows:**
 ```bash
-python -m venv .venv
+python -m venv venv
+venv\Scripts\activate
 ```
-Windows:
+
+**Mac/Linux:**
 ```bash
-.venv\Scripts\activate
+python3 -m venv venv
+source venv/bin/activate
 ```
-Mac/Linux:
-```bash
-source .venv/bin/activate
-```
+
 ### 3. Install Dependencies
+Install semua pustaka yang diperlukan:
 ```bash
-pip install flask pandas numpy scikit-learn joblib
+pip install -r requirements.txt
 ```
-### 4. Menjalankan Dashboard
-Jalankan server:
+
+### 4. Jalankan Aplikasi
+Mulai server Flask:
 ```bash
 python app.py
 ```
-Buka browser ke:
-```bash
-http://127.0.0.1:5000
-```
----
-📂 Struktur Direktori
-```bash
-TrafficFlow/
-│
-├── app.py                     # Backend Flask + integrasi model ML
-├── traffic_model_final.pkl    # Model Random Forest siap digunakan
-├── scaler.pkl                 # Normalisasi fitur input
-├── templates/
-│   └── index.html             # UI dashboard utama
-└── .gitignore                 # Ignore file .venv, cache, dll
-```
-🤝 Kontribusi & Lisensi
-Proyek ini bersifat open-source untuk tujuan pembelajaran.
-Kontribusi berupa:
-- Penambahan fitur
-- Perbaikan bug
-- Optimasi model
-Sangat diapresiasi untuk membantu pengembangan TrafficFlow.
 
-✨ "Data-driven decisions for better urban mobility." — GAZ 2025
+### 5. Akses Dashboard
+Buka browser Anda dan kunjungi alamat berikut:
+`http://127.0.0.1:5001/` atau `http://127.0.0.1:5000/` (sesuai output di terminal).
+
+## 📖 Cara Menggunakan Panduan (Guide)
+
+Untuk hasil prediksi yang akurat, pengguna disarankan memahami variabel input:
+
+1.  Klik tombol **"Panduan"** di navigasi atas.
+2.  Pelajari 5 kategori input (Waktu, Kecepatan, Cuaca, Volume, Sinyal).
+3.  Gulir ke bawah ke bagian **"Contoh Skenario Lengkap"**.
+4.  Gunakan nilai contoh tersebut untuk menguji model (misalnya: Masukkan nilai skenario "Macet Total" ke form utama untuk melihat hasil indikator Merah).
+
+## ☁️ Deployment
+
+Aplikasi ini siap di-deploy ke platform PaaS seperti Render, Railway, atau Heroku.
+
+1.  Pastikan file `requirements.txt` dan `Procfile` sudah ada.
+2.  Push kode ke repository GitHub Anda.
+3.  Hubungkan repository ke layanan hosting pilihan Anda.
+4.  Layanan akan mendeteksi aplikasi Python dan menjalankannya secara otomatis.
+
+---
+
+**Kredit**
+
+Dibuat untuk Proyek Optimasi Alur Lalu Lintas
+GAZ 2025 - *Data-driven decisions for better urban mobility.*
