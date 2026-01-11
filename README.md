@@ -125,7 +125,4 @@ Untuk hasil prediksi yang akurat, pengguna disarankan memahami variabel input:
 
 ---
 
-**Kredit**
-Dibuat untuk Proyek Machine Learning
-
 GAZ 2025 - *Data-driven decisions for better urban mobility.*
